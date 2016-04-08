@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         string []biodata= new string[10];
         string[] MEDICALdata = new string[5];
         string fees;
-        string month_id,month_name,voucher="";
+        string month_id,month_name,voucher;
         public Form1()
         {
             InitializeComponent();
@@ -26,46 +26,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            {//MY CODE HANDLING
-                
-                biodata[0] = txtfname.Text;
-                biodata[1] = txtfname.Text;
-                biodata[2] = txtreligion.Text;
-                biodata[3] = cmbmonth.SelectedItem.ToString() + "-" + cmbyear.SelectedItem.ToString() + "-" + cmbdate.SelectedItem.ToString();
-                biodata[4] = cmbclass.SelectedItem.ToString();
-                biodata[5] = txtaddress.Text;
-                biodata[6] = txtcontct.Text;
-                biodata[7] = textBox5.Text; //date
-                biodata[8] = textBox6.Text; //fess
-                if (checkBox3.Checked==true)
-                {
-                    biodata[9] = "self";
-                }
-                else if (checkBox4.Checked==true)
-                {
-                    biodata[9] = "Transport";
-                }
-                else if (checkBox4.Checked == true && checkBox3.Checked == true)
-                {
-                    biodata[9] = "Both";
-                }
-                else
-                {
-                    biodata[9] = "NONE";
-                }
-                MEDICALdata[0] = textBox1.Text; //HEIGHT
-                MEDICALdata[1] = textBox2.Text; //WEIGHT
-                MEDICALdata[2] = textBox3.Text;//EYESIGHT
-                MEDICALdata[3] = textBox4.Text;//BLOODGROUP..
-
-                string s = System.DateTime.Now.ToString();
-               algo a=new algo();
-               month_id = a.month_id_method(s);
-               month_name = a.month_name_method(s);
-
-
-            } //MY CODE HANDLING
-
+            
 
 
             textBox6.Enabled = false;
@@ -212,18 +173,87 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            {//MY CODE HANDLING
+
+                biodata[0] = txtname.Text;
+                biodata[1] = txtfname.Text;
+                biodata[2] = txtreligion.Text;
+                biodata[3] = cmbmonth.SelectedItem.ToString() + "-" + cmbyear.SelectedItem.ToString() + "-" + cmbdate.SelectedItem.ToString();
+                biodata[4] = cmbclass.SelectedItem.ToString();
+                biodata[5] = txtaddress.Text;
+                biodata[6] = txtcontct.Text;
+                biodata[7] = textBox5.Text; //date
+                biodata[8] = textBox6.Text; //fess
+                if (checkBox3.Checked == true)
+                {
+                    biodata[9] = "self";
+                }
+                else if (checkBox4.Checked == true)
+                {
+                    biodata[9] = "Transport";
+                }
+                else if (checkBox4.Checked == true && checkBox3.Checked == true)
+                {
+                    biodata[9] = "Both";
+                }
+                else
+                {
+                    biodata[9] = "NONE";
+                }
+                MEDICALdata[0] = textBox1.Text; //HEIGHT
+                MEDICALdata[1] = textBox2.Text; //WEIGHT
+                MEDICALdata[2] = textBox3.Text;//EYESIGHT
+                MEDICALdata[3] = textBox4.Text;//BLOODGROUP..
+
+                string s = System.DateTime.Now.ToString();
+                algo a = new algo();
+                month_id = a.month_id_method(s);
+                month_name = a.month_name_method(s);
+
+                sqlreturn s1 = new sqlreturn("select MAX(voucher) from voucher_record");
+               string voucher_s= s1.scalarReturn();
+               algo ab = new algo();
+               
+                voucher ="P-"+ab.voucher_return(voucher_s);
+                insert_class v1 = new insert_class();
+                v1.insert_voucher(voucher);
+            } //MY CODE HANDLING
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             insert_class C1 = new insert_class();
             C1.insert_record(biodata);
 
-            string querry = "select s_id from student_record where s_name='" + txtname + "'";            
+            string querry = "select s_id from student_record where s_name='" + biodata[0] + "'";            
             sqlreturn ob = new sqlreturn(querry);
             MEDICALdata[4] = ob.scalarReturn(); //THIS IS ID FOR MEDICAL RECORD......
             
             insert_class M1 = new insert_class();
             M1.insert_medicalreord(MEDICALdata);
-
+            sqlreturn ob2 = new sqlreturn(querry);
+            string M_D = ob2.scalarReturn();
             insert_class F1 = new insert_class();
-            F1.insert_monthlyfees(MEDICALdata[4], fees, month_id, month_name, cmbyear.SelectedItem.ToString(), voucher);
+
+            F1.insert_monthlyfees(M_D, fees, month_id, month_name, cmbyear.SelectedItem.ToString(),voucher);
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
 
         } //EVENT ENDING......
 

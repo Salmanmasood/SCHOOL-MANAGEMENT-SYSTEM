@@ -70,7 +70,6 @@
             this.txtname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -83,7 +82,6 @@
             // 
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label18);
@@ -593,19 +591,6 @@
             this.label14.Text = "Bio data";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Maroon;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(136, 191);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 35);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Insert";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,7 +666,6 @@
         private System.Windows.Forms.TextBox txtname;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button3;
     }
 }
 

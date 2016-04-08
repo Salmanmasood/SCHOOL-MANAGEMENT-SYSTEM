@@ -61,11 +61,11 @@ namespace WindowsFormsApplication1
             SqlConnection conn = new SqlConnection(connstring);
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERTING_medical", conn);
+                SqlCommand cmd = new SqlCommand("INSERTING_medical2", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@m_s_id", SqlDbType.Int).Value = medical[4];
-                cmd.Parameters.Add("@m_height", SqlDbType.NVarChar, 50).Value = medical[0];
-                cmd.Parameters.Add("@m_weight", SqlDbType.NVarChar, 50).Value = medical[1];
+                cmd.Parameters.Add("@m_height", SqlDbType.Int).Value = medical[0];
+                cmd.Parameters.Add("@m_weight", SqlDbType.Int).Value = medical[1];
                 cmd.Parameters.Add("@m_eyesight", SqlDbType.NVarChar, 50).Value = medical[2];
                 cmd.Parameters.Add("@m_bloodgroup", SqlDbType.NVarChar, 50).Value = medical[3];
 
@@ -123,7 +123,30 @@ namespace WindowsFormsApplication1
             }
 
 
+        } //end of method......
+        public void insert_voucher(string v)
+        {
+             SqlConnection conn = new SqlConnection(connstring);
+             try
+             {
+                 SqlCommand cmd = new SqlCommand("inserting_voucher_records", conn);
+                 cmd.CommandType = CommandType.StoredProcedure;
+                 cmd.Parameters.Add("@voucher", SqlDbType.NVarChar, 50).Value = v;
+                 conn.Open();
+                 cmd.ExecuteNonQuery();
+             }
+            catch(Exception)
+             {
+                 MessageBox.Show("voucher data is not inserted !!!");
+
+             }
+             finally
+             {
+                 conn.Close();
+             }
+
         }
+
 
 
     }

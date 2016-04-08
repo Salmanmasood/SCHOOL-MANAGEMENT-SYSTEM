@@ -29,9 +29,19 @@ namespace WindowsFormsApplication1
             z = z + "016";
             return z;
         }
+        // substring method.....
+
+        public string voucher_return(string s)
+        {
+            string t = s.Substring(2);
+            int x = Convert.ToInt32(t);
+            x++;
+            return x.ToString();
+
+        }
 
 
-
+        // substring method.....
 
         public string month_name_method(string s)
         {
