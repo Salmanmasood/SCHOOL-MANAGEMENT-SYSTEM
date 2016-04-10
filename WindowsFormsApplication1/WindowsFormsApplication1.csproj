@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="algo.cs" />
+    <Compile Include="Deletion_CLASS.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

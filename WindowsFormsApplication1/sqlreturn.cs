@@ -18,8 +18,22 @@ namespace WindowsFormsApplication1
         {
             this.q = q;
         }
+        public sqlreturn()
+        {
+
+        }
 
         public string scalarReturn()
+        {
+            SqlConnection conn = new SqlConnection(connstring);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(q, conn);
+            string s = cmd.ExecuteScalar().ToString();
+            return s;
+
+        }
+
+        public string scalarReturn(string q)
         {
             SqlConnection conn = new SqlConnection(connstring);
             conn.Open();

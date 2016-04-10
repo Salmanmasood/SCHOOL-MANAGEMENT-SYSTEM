@@ -265,13 +265,16 @@ namespace WindowsFormsApplication1
                 button3.Enabled = true;
                 txt_id.Enabled = true;
                 button1.Enabled = false;
+                button2.Enabled = false;
+
             }
             if (checkBox1.Checked==false)
             {
                 button1.Enabled = true;
                 button3.Enabled =false;
                 txt_id.Enabled = false;
-                
+                button1.Enabled = true;
+
             }
 
         }
@@ -318,6 +321,53 @@ namespace WindowsFormsApplication1
             update_class up = new update_class();
             up.update_record(biodata);
             up.update_medicalreord(MEDICALdata);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+       
+            string[] history = new string[10];
+            string id=textBox7.Text;
+            sqlreturn s1 = new sqlreturn();
+            history[0] = textBox7.Text;
+           history[1] =s1.scalarReturn("select s_name from student_record where s_id="+id);
+           history[2] = s1.scalarReturn("select s_fname from student_record where s_id=" + id);
+           history[3] = s1.scalarReturn("select s_address from student_record where s_id=" + id);
+           history[4] = s1.scalarReturn("select s_date_of_birth from student_record where s_id=" + id);
+           history[5] = s1.scalarReturn("select s_class from student_record where s_id=" + id);
+           history[6] = s1.scalarReturn("select s_contact from student_record where s_id=" + id);
+           history[7] = s1.scalarReturn("select s_admission_date from student_record where s_id=" + id);
+           history[8] = System.DateTime.Now.ToString();
+           Deletion_CLASS d = new Deletion_CLASS();
+           d.insertinto_history(history);
+           Deletion_CLASS d1 = new Deletion_CLASS();
+           d1.DELETE_DATA(id, "deleting_medical", "@m_s_id");
+           d1.DELETE_DATA(id, "deleting_fees", "@f_s_id");
+           Deletion_CLASS d2 = new Deletion_CLASS();
+          
+           d2.DELETE_DATA(id, "deleting_records", "@s_id");
+
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked==true)
+            {
+                button1.Enabled = false;
+                button3.Enabled = false;
+                button2.Enabled = true;
+
+            }
+
+            if (checkBox2.Checked == false)
+            {
+                button1.Enabled = true;
+                button3.Enabled = true;
+                button2.Enabled = false;
+
+            }
 
         } //EVENT ENDING......
 
