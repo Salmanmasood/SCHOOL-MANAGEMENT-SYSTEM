@@ -13,6 +13,7 @@ E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsA
 E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
 E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
 E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.view_form.resources
 E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 E:\GIT\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

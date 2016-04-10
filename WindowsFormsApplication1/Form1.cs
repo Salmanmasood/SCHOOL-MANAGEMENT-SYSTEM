@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1
         string[] clas = new string[] { "Montessori", "Nursery", "PREP-I", "PREP-II", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X" };
         int[] admissionfees = new int[5];//FEES ARRAY
         string[] months = new string[] { "Januray", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-        string []biodata= new string[10];
+        string []biodata= new string[11];
         string[] MEDICALdata = new string[5];
         string fees;
         string month_id,month_name,voucher;
@@ -26,7 +26,8 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            button3.Enabled = false;
+            txt_id.Enabled = false;
 
 
             textBox6.Enabled = false;
@@ -252,8 +253,71 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            if (checkBox1.Checked==true)
+            {
+                button3.Enabled = true;
+                txt_id.Enabled = true;
+                button1.Enabled = false;
+            }
+            if (checkBox1.Checked==false)
+            {
+                button1.Enabled = true;
+                button3.Enabled =false;
+                txt_id.Enabled = false;
+                
+            }
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            {//MY CODE HANDLING
+
+                biodata[0] = txtname.Text;
+                biodata[1] = txtfname.Text;
+                biodata[2] = txtreligion.Text;
+                biodata[3] = cmbmonth.SelectedItem.ToString() + "-" + cmbyear.SelectedItem.ToString() + "-" + cmbdate.SelectedItem.ToString();
+                biodata[4] = cmbclass.SelectedItem.ToString();
+                biodata[5] = txtaddress.Text;
+                biodata[6] = txtcontct.Text;
+                biodata[7] = textBox5.Text; //date
+                biodata[8] = textBox6.Text; //fess
+
+                if (checkBox3.Checked == true)
+                {
+                    biodata[9] = "self";
+                }
+                else if (checkBox4.Checked == true)
+                {
+                    biodata[9] = "Transport";
+                }
+                else if (checkBox4.Checked == true && checkBox3.Checked == true)
+                {
+                    biodata[9] = "Both";
+                }
+                else
+                {
+                    biodata[9] = "NONE";
+                }
+                biodata[10] = txt_id.Text; //fess
+
+                MEDICALdata[0] = textBox1.Text; //HEIGHT
+                MEDICALdata[1] = textBox2.Text; //WEIGHT
+                MEDICALdata[2] = textBox3.Text;//EYESIGHT
+                MEDICALdata[3] = textBox4.Text;//BLOODGROUP..
+                MEDICALdata[4] = biodata[10];
+            }
+            //code handling....
+            update_class up = new update_class();
+            up.update_record(biodata);
+            up.update_medicalreord(MEDICALdata);
 
         } //EVENT ENDING......
 

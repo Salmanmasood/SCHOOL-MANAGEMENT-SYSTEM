@@ -56,6 +56,13 @@ namespace WindowsFormsApplication1
 
         } //method end...........
 
+
+
+
+
+
+
+
         public void insert_medicalreord(string []medical)
         {
             SqlConnection conn = new SqlConnection(connstring);
