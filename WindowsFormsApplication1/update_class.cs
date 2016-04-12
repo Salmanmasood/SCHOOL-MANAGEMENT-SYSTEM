@@ -93,11 +93,44 @@ namespace WindowsFormsApplication1
 
 
 
+        public void update_monthchanges(string id,string monthid,string monthname,string year)
+        {
+            SqlConnection conn = new SqlConnection(connstring);
+
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("uPDATING_monthly_fees_forchange_month", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@f_s_id ", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@f_fees", SqlDbType.Int).Value = "0";
+                cmd.Parameters.Add("@f_m_id", SqlDbType.Int).Value = monthid;
+                cmd.Parameters.Add("@f_fees_status", SqlDbType.NVarChar, 50).Value = "UN-PAID";
+                cmd.Parameters.Add("@f_month_name", SqlDbType.NVarChar, 50).Value = monthname;
+                cmd.Parameters.Add("@f_year", SqlDbType.NVarChar, 50).Value = year;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+
+                
+
+            }
+
+            catch (Exception)
+            {
+
+                MessageBox.Show("fees data is not UPDATED !!!");
+            }
+
+            finally
+            {
+                conn.Close();
+            }
 
 
 
-
-
+        }
 
 
     }

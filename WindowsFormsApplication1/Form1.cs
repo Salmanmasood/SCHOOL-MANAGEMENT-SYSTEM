@@ -248,8 +248,8 @@ namespace WindowsFormsApplication1
             sqlreturn ob2 = new sqlreturn(querry);
             string M_D = ob2.scalarReturn();
             insert_class F1 = new insert_class();
-
-            F1.insert_monthlyfees(M_D, fees, month_id, month_name, cmbyear.SelectedItem.ToString(),voucher);
+            F1.insert_monthlyfees(M_D, fees, month_id, month_name, cmbyear.SelectedItem.ToString(), voucher);
+            F1.insert_hisotryfees(M_D, fees, month_id, month_name, cmbyear.SelectedItem.ToString(), voucher,biodata[0],biodata[1]);
 
         }
 

@@ -154,6 +154,72 @@ namespace WindowsFormsApplication1
 
         }
 
+        //method end.....
+
+        public void insert_hisotryfees(string id, string fees, string month_id, string monthname, string year, string voucher,string name,string fname)
+        {
+            SqlConnection conn = new SqlConnection(connstring);
+            try
+            {
+                SqlCommand cmd = new SqlCommand("inserting_HISTORY_fees2", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@h_s_id", SqlDbType.Int).Value = id;
+                cmd.Parameters.Add("@h_fees", SqlDbType.Int).Value = fees;
+                cmd.Parameters.Add("@h_fees_status", SqlDbType.NVarChar, 50).Value = "PAID";
+                cmd.Parameters.Add("@h_m_id", SqlDbType.Int).Value = month_id;
+                cmd.Parameters.Add("@h_month_name", SqlDbType.NVarChar, 50).Value = monthname;
+                cmd.Parameters.Add("@h_year", SqlDbType.NVarChar, 50).Value = year;
+                cmd.Parameters.Add("@h_feesvoucher", SqlDbType.NVarChar, 50).Value = voucher;
+                cmd.Parameters.Add("@h_name", SqlDbType.NVarChar, 50).Value = name;
+                cmd.Parameters.Add("@h_fname", SqlDbType.NVarChar, 50).Value = fname;
+                conn.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("FESS DATA record has been inserted successfully.....");
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("FEES data is not inserted !!!");
+            }
+
+            finally
+            {
+                conn.Close();
+            }
+
+
+        } //end of method......
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

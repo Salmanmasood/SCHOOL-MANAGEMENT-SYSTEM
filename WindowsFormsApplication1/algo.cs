@@ -25,8 +25,8 @@ namespace WindowsFormsApplication1
 
 
             }
-
-            z = z + "016";
+            string yx = System.DateTime.Now.Year.ToString();
+            z = z + yx;
             return z;
         }
         // substring method.....

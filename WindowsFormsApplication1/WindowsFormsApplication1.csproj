@@ -47,6 +47,18 @@
   <ItemGroup>
     <Compile Include="algo.cs" />
     <Compile Include="Deletion_CLASS.cs" />
+    <Compile Include="experiment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="experiment.Designer.cs">
+      <DependentUpon>experiment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fees_sub_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fees_sub_form.Designer.cs">
+      <DependentUpon>fees_sub_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +77,12 @@
     <Compile Include="view_form.Designer.cs">
       <DependentUpon>view_form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="experiment.resx">
+      <DependentUpon>experiment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fees_sub_form.resx">
+      <DependentUpon>fees_sub_form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
