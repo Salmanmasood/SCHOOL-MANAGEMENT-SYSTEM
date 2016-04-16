@@ -1,0 +1,3 @@
+# SCHOOL-MANAGEMENT-SYSTEM
+A TRY TO MAKE MANAGEMENT SYSTEM....
+miniproject for helping a friend 
